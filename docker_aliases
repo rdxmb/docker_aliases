@@ -1,0 +1,22 @@
+# shows image list from down to up
+alias di='docker image list | tac'
+
+# runs a container of the last image you created in detached mode
+alias dr='docker run -d $(docker images -q | head -n 1)'
+
+# exec into the last started container
+alias de='docker exec -ti $(docker ps -lq) bash'
+
+# stop the last started container
+alias ds="docker stop $(docker ps -lq)"
+
+# docker ps without line-breaks
+alias dps='docker ps | less -S'
+
+# show procs of last running container
+alias dtop='docker top $(docker ps -lq)'
+alias dt='docker top $(docker ps -lq)'
+
+alias dcdown='docker-compose down'
+alias dcup='docker-compose up'
+alias dcupd='docker-compose up -d'
